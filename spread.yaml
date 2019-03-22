@@ -52,7 +52,9 @@ backends:
                 workers: 8
             - ubuntu-18.04-64:
                 workers: 6
-
+            - ubuntu-18.10-64:
+                image: ubuntu-1810
+                workers: 6
             - ubuntu-core-16-64:
                 image: ubuntu-16.04-64
                 workers: 6
@@ -66,16 +68,18 @@ backends:
                 workers: 6
                 manual: true
 
-            - fedora-26-64:
-                workers: 4
-                manual: true
-            - fedora-27-64:
-                workers: 4
-                manual: true
             - fedora-28-64:
                 workers: 4
-
+                manual: true
+            - fedora-29-64:
+                workers: 4
             - opensuse-42.3-64:
+                workers: 4
+                # golang stack cannot compile anything, needs investigation
+                manual: true
+            - opensuse-15.0-64:
+                workers: 4
+            - opensuse-tumbleweed-64:
                 workers: 4
             - arch-linux-64:
                 workers: 4
@@ -85,7 +89,7 @@ backends:
                 storage: preserve-size
 
             - centos-7-64:
-                workers: 1
+                workers: 4
                 image: centos-7-64
 
     qemu:
