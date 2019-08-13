@@ -1,0 +1,10 @@
+summary: Ensure it works.
+
+execute: |
+    echo "works"
+
+restore: |
+    if [[ "$SPREAD_REBOOT" == 0 ]]; then
+        ERROR "this has failed"
+    fi
+    echo done
