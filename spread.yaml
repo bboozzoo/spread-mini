@@ -55,6 +55,8 @@ backends:
             - ubuntu-18.10-64:
                 image: ubuntu-1810
                 workers: 6
+            - ubuntu-19.10-64:
+                workers: 6
             - ubuntu-core-16-64:
                 image: ubuntu-16.04-64
                 workers: 6
@@ -76,7 +78,12 @@ backends:
             - fedora-30-64:
                 workers: 4
             - fedora-30-64-unified:
+                image: test-fedora-2
+                workers: 6
+            - fedora-31-64-unified:
                 image: test-fedora-1
+                workers: 6
+            - fedora-31-64:
                 workers: 6
             - opensuse-42.3-64:
                 workers: 4
@@ -84,6 +91,8 @@ backends:
                 manual: true
             - opensuse-15.0-64:
                 workers: 4
+            - opensuse-15.1-64:
+                workers: 6
             - opensuse-tumbleweed-64:
                 workers: 4
             - arch-linux-64:
@@ -153,6 +162,10 @@ kill-timeout: 20m
 
 prepare: |
     echo "prepare"
+    if [[ "$SPREAD_SYSTEM" == arch-* ]] && [[ "$SPREAD_REBOOT" == 0 ]]; then
+        pacman -Syu --noconfirm
+        REBOOT
+    fi
 prepare-each: |
     echo "prepare each"
 restore: |
