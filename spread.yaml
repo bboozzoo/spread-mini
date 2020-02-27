@@ -162,10 +162,12 @@ kill-timeout: 20m
 
 prepare: |
     echo "prepare"
-    if [[ "$SPREAD_SYSTEM" == arch-* ]] && [[ "$SPREAD_REBOOT" == 0 ]]; then
+    if [[ "$SPREAD_SYSTEM" == arch-linux-64 ]] && [[ "$SPREAD_REBOOT" == 0 ]]; then
         pacman -Syu --noconfirm
         REBOOT
     fi
+    useradd --create-home --user-group --uid 12345 test
+
 prepare-each: |
     echo "prepare each"
 restore: |
