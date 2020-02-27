@@ -1,0 +1,10 @@
+summary: check if AA is -fPIC
+
+systems: [ubuntu-1*-64, ubuntu-2*-64, debian-*-64]
+
+execute: |
+  apt install hardening-wrapper -y || true
+  eval "$(DEB_BUILD_OPTIONS=hardening=+pie dpkg-buildflags --export=sh)"
+  gcc aa.c -pie -static $CPPFLAGS $CFLAGS $LDFLAGS -lapparmor -pthread
+  objdump -f ./a.out | MATCH DYNAMIC
+  hardening-check ./a.out | MATCH 'Position Independent Executable.*: yes'
