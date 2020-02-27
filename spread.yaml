@@ -1,6 +1,10 @@
 project: spread-mini
 
+path: /home/spread-mini
+
 environment:
+    TESTSLIB: /home/spread-mini/tests/lib
+    PATH: $PATH:/home/spread-mini/tests/lib/bin
 
 backends:
     linode:
