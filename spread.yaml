@@ -61,12 +61,18 @@ backends:
                 workers: 6
             - ubuntu-19.10-64:
                 workers: 6
+            - ubuntu-20.04-64:
+                workers: 6
             - ubuntu-core-16-64:
                 image: ubuntu-16.04-64
                 workers: 6
             - ubuntu-core-18-64:
                 image: ubuntu-16.04-64
                 workers: 6
+            - ubuntu-core-20-64:
+                image: ubuntu-2004-64-virt-uefi-enabled
+                workers: 6
+                storage: 20G
 
             - debian-9-64:
                 workers: 6
@@ -101,6 +107,8 @@ backends:
                 workers: 4
             - arch-linux-64:
                 workers: 4
+            - arch-linux-64-base:
+                workers: 4
 
             - amazon-linux-2-64:
                 workers: 4
@@ -109,6 +117,9 @@ backends:
             - centos-7-64:
                 workers: 4
                 image: centos-7-64
+            - centos-8-64:
+                workers: 4
+                image: centos-8-64
 
     qemu:
         systems:
