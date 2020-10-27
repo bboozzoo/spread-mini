@@ -1,0 +1,14 @@
+summary: check vedor sync
+
+kill-timeout: 5m
+
+execute: |
+  export GOPATH=$HOME/gopath
+  export PATH=$PATH:$GOPATH/bin
+  mkdir -p $GOPATH/src/github/snapcore
+  cd $GOPATH/src/github/snapcore
+  git clone --depth 1 https://github.com/snapcore/snapd.git
+  cd snapd
+  go get -u -v github.com/kardianos/govendor
+  govendor sync -v
+  test "$(ls -1 vendor | grep -v vendor.json | wc -l)" -gt 0
