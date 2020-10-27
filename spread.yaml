@@ -95,6 +95,8 @@ backends:
                 workers: 6
             - fedora-31-64:
                 workers: 6
+            - fedora-32-64:
+                workers: 6
             - opensuse-42.3-64:
                 workers: 4
                 # golang stack cannot compile anything, needs investigation
@@ -102,6 +104,8 @@ backends:
             - opensuse-15.0-64:
                 workers: 4
             - opensuse-15.1-64:
+                workers: 6
+            - opensuse-15.2-64:
                 workers: 6
             - opensuse-tumbleweed-64:
                 workers: 4
@@ -117,9 +121,11 @@ backends:
             - centos-7-64:
                 workers: 4
                 image: centos-7-64
+                storage: preserve-size
             - centos-8-64:
                 workers: 4
                 image: centos-8-64
+                storage: preserve-size
 
     qemu:
         systems:
