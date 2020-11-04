@@ -1,0 +1,6 @@
+summary: purge snapd
+
+execute: |
+  snap wait system seed.loaded
+  apt remove --purge snapd -y
+  test ! -d /var/lib/snapd

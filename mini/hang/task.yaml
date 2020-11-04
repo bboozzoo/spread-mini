@@ -1,0 +1,6 @@
+summary: hangs
+
+kill-timeout: 1m
+execute: |
+  sleep 1h &
+  echo done
