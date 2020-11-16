@@ -100,6 +100,8 @@ backends:
                 workers: 6
             - fedora-32-64:
                 workers: 6
+            - fedora-33-64:
+                workers: 6
             - opensuse-42.3-64:
                 workers: 4
                 # golang stack cannot compile anything, needs investigation
